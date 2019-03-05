@@ -1,37 +1,48 @@
-<form method="POST" action="">
-<label>Roll no</label><input type="text" name="roll" />
-<label>Sname</label><input type="text" name="sname" />
-<input type="submit" value="insert" name="submit" />
-
-
-</form>
-
-
-
-<?php
-if(isset($_POST['submit']))
-{
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "student";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+<!DOCTYPE html>
+<html>
+<head>
+<style
+<body>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-$sql = "INSERT INTO stud (roll, sname)
-VALUES ('".$_POST['roll']."','".$_POST['sname']."')";
-
-if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Successfully Save')</script>";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+li {
+    float: left;
 }
 
-mysqli_close($conn);
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-?>
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="adminlogin.php">Home</a></li>
+  <li><a href="studentlogin.php">Student Login</a></li>
+  <li><a href="registration.php">Registration</a></li>
+  <li><a href="">About</a></li>
+</ul>
+
+</body>
+</html>
