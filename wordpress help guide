@@ -1,0 +1,70 @@
+**************To Get Directory Path *************
+<?php echo get_template_directory_uri(); ?>
+
+**************NavBar*************
+
+ <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+
+
+
+**********************Search Box***************
+
+<form method="get" id="searchform" action="<?php bloginfo('home'); ?>/">
+<div><input type="text" size="18" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="Search" class="btn" />
+</div>
+</form>
+
+
+**********************Home Page Url***************
+<?php bloginfo('url');?>
+
+**********************Template help Link***************
+https://developer.wordpress.org/themes/basics/template-hierarchy/
+
+
+***************adding a  class to  header*************
+<?php if ( !is_front_page() ) { ?>
+<div class="container">
+<?php } ?>
+**************adding a footer************
+<?php if ( !is_front_page() ) { ?>
+</div>
+<?php } ?>
+
+************Disable the wordpres supdate**********************
+define this code in wp-config.php file
+
+define( 'WP_AUTO_UPDATE_CORE', false )
+
+***************************Display Response Massage in Contact Form-7*********************
+[response]
+***************************Display Response Massage in popup Contact Form-7*********************
+on_sent_ok: "alert('Form sent OK');"
+***************************Set feature image as background image*********************************
+$thumbail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'featured-home-thumb'); 
+if(!empty($thumbail)){
+?>
+
+<div class="cont1-lft" style="background:url('<?php echo $thumbail[0]; ?>') no-repeat scroll 0 0 / cover ;">
+<?php } ?>
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^.*$ https://www.goldcoasttransportation.com%{REQUEST_URI} [R,L]
+
+# BEGIN WordPress
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+
+
+
+
